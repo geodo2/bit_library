@@ -13,56 +13,66 @@
     <title>도서 등록</title>
     <style>
         body {
+            background-color: #F7F7F7;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: #fff;
-            border-radius: 5px;
-            padding: 20px;
+            padding: 0;
         }
 
         h1 {
+            background-color: #FFFFFF;
+            color: #01598B;
+            padding: 20px;
+            margin: 0;
             text-align: center;
-            margin-bottom: 20px;
+            border-radius: 10px;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        form {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
 
-        .form-group label {
-            display: block;
+        label {
             font-weight: bold;
-            margin-bottom: 5px;
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="number"] {
-            width: 100%;
+        input[type="text"],
+        input[type="number"] {
             padding: 10px;
-            border: 1px solid #ccc;
+            font-size: 16px;
             border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            width: 100%;
         }
 
-        .form-group button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: #fff;
+        button[type="submit"] {
+            background-color: #29B6F6;
             border: none;
-            border-radius: 5px;
+            color: #FFFFFF;
+            padding: 10px 20px;
             cursor: pointer;
+            font-size: 16px;
+            border-radius: 20px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #03A9F4;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <h1>도서 등록</h1>
+
     <form action="BookRegisterServlet" method="post">
         <div class="form-group">
             <label for="title">책 이름:</label>
@@ -90,6 +100,8 @@
             <button type="submit">등록</button>
         </div>
     </form>
+
+
 </div>
 </body>
 </html>

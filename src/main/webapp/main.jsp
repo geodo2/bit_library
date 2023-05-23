@@ -50,6 +50,7 @@
     <div class="btn-container">
       <a href="insert.jsp" class="btn">회원가입</a>
       <a href="list.do" class="btn">회원관리</a>
+      <a href="BookListServlet" class="btn">책 목록 확인</a>
     </div>
   </div>
 </body>

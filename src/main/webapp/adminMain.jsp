@@ -2,14 +2,15 @@
   Created by IntelliJ IDEA.
   User: holid
   Date: 2023-05-23
-  Time: 오후 5:48
+  Time: 오후 8:49
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.example.library.img" %>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>사용자 버전 - 회원가입</title>
+  <title>도서관리 프로그램 - 관리자 버전</title>
   <style>
     body {
       background-color: #F7F7F7;
@@ -21,7 +22,6 @@
       height: 100vh;
       margin: 0;
       padding: 0;
-
     }
 
     h1 {
@@ -30,24 +30,13 @@
       padding: 20px;
       margin: 0;
       text-align: center;
-      font-size:40px;
       border-radius: 10px;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    input {
-      padding: 10px;
-      width: 500px;
-      margin: 10px;
-      border-radius: 5px;
-      border: 1px solid #999999;
+    img {
+      display: block;
+      margin: 20px auto;
+      max-width: 300px;
     }
 
     button {
@@ -64,25 +53,40 @@
     button:hover {
       background-color: #03A9F4;
     }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-<h1>회원가입 페이지</h1>
+<h1>도서관리 프로그램 - 관리자 버전</h1>
 
-<form>
-  <input type="text" placeholder="ID">
-  <input type="text" placeholder="e-mail">
-  <input type="text" placeholder="전화번호">
-  <input type="password" placeholder="비밀번호">
-  <button onclick="login()">로그인</button>
-  <button onclick="newAcount()">회원가입</button>
-</form>
+
+
+<div>
+  <label for="adminKey">관리자 키:</label>
+  <input type="text" id="adminKey" placeholder="관리자 키를 입력하세요">
+  <button onclick="showAdminKey()">입력</button>
+</div>
+
+<div class="result" id="result"></div>
 
 <script>
-  function login(){}
-  function newAcount() {
+  function showAdminKey() {
+    var adminKey = document.getElementById("adminKey").value;
+    var resultElement = document.getElementById("result");
+    resultElement.textContent = "입력된 관리자 키: " + adminKey;
   }
 </script>
 </body>
 </html>
-

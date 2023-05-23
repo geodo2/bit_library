@@ -1,55 +1,69 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+         pageEncoding="EUC-KR"%>
 
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>íšŒì›ê°€ì… ê´€ë¦¬ ì„œë¹„ìŠ¤</title>
+    <title>µµ¼­ °ü¸® - °ü¸®ÀÚ µµ¼­ µî·Ï ÆäÀÌÁö</title>
     <style>
         body {
+            background-color: #F7F7F7;
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
 
         h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
+            background-color: #FFFFFF;
+            color: #01598B;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            text-align: center;
+            border-radius: 10px;
         }
 
-        .btn-container {
-            text-align: center;
+        .button-container {
+            display: flex;
+            justify-content: center;
             margin-top: 20px;
         }
 
-        .btn {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: #fff;
+        button {
+            background-color: #01598B;
             border: none;
-            border-radius: 4px;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            margin: 10px;
             cursor: pointer;
-            margin-right: 10px;
+            font-size: 16px;
+            border-radius: 20px;
+        }
+
+
+        button:hover {
+            background-color: #013766;
         }
     </style>
 </head>
 <body>
-<h1>íšŒì›ê°€ì… ê´€ë¦¬ ì„œë¹„ìŠ¤</h1>
-<div class="container">
-    <div class="btn-container">
-        <a href="BookInsert.jsp" class="btn">íšŒì›ê°€ì…</a>
-        <a href="UserLogin.jsp" class="btn">íšŒì›ê´€ë¦¬</a>
-    </div>
+<h1>µµ¼­ °ü¸® - °ü¸®ÀÚ µµ¼­ µî·Ï ÆäÀÌÁö</h1>
+
+<div class="button-container">
+    <button onclick="location.href='BookInsert.jsp'">µµ¼­ µî·Ï</button>
+    <button onclick="goToQuantityModification()">µµ¼­ ¼ö·® ¼öÁ¤</button>
+    <button onclick="goToBookDeletion()">µµ¼­ »èÁ¦</button>
+    <button onclick="location.href='BookListServlet'">ÀüÃ¼ Ãâ·Â</button>
 </div>
+
+
+<script>
+
+</script>
 </body>
 </html>
