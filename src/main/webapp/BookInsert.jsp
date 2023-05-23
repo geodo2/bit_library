@@ -73,7 +73,14 @@
             <label for="author">저자:</label>
             <input type="text" id="author" name="author" required>
         </div>
-
+        <div class="form-group">
+            <label for="publisher">출판사:</label>
+            <input type="text" id="publisher" name="publisher" required>
+        </div>
+        <div class="form-group">
+            <label for="book_weight">책 무게:</label>
+            <input type="text" id="book_weight" name="book_weight" required>
+        </div>
         <div class="form-group">
             <label for="quantity">수량:</label>
             <input type="number" id="quantity" name="quantity" min="0" required>

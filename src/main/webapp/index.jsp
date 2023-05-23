@@ -48,7 +48,7 @@
 <div class="container">
     <div class="btn-container">
         <a href="BookInsert.jsp" class="btn">회원가입</a>
-        <a href="list.do" class="btn">회원관리</a>
+        <a href="UserLogin.jsp" class="btn">회원관리</a>
     </div>
 </div>
 </body>
