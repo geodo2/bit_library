@@ -2,10 +2,9 @@
   Created by IntelliJ IDEA.
   User: holid
   Date: 2023-05-24
-  Time: 오전 1:04
+  Time: 오전 1:21
   To change this template use File | Settings | File Templates.
 --%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.example.library.book.BookVO" %>
 <%@ page import="java.util.List" %>
@@ -51,7 +50,7 @@
     }
 
     button {
-      background-color: #f62929;
+      background-color: #29B6F6;
       border: none;
       color: #FFFFFF;
       padding: 10px 20px;
@@ -111,7 +110,7 @@
     <td>
       <form action="BookEditServlet" method="get">
         <input type="hidden" name="bookId" value="<%= book.getBookId() %>">
-        <button type="submit">Delete</button>
+        <button type="submit">Modify</button>
       </form>
     </td>
   </tr>

@@ -95,7 +95,7 @@
         <th>Publisher</th>
         <th>Quantity</th>
         <th>Is Available</th>
-        <th>Actions</th>
+
     </tr>
     <%
         List<BookVO> bookList= (List<BookVO>)request.getAttribute("bookList");
@@ -107,12 +107,7 @@
         <td><%= book.getPublisher() %></td>
         <td><%= book.getQuantity() %></td>
         <td><%= book.isAvailable() %></td>
-        <td>
-            <form action="BookEditServlet" method="get">
-                <input type="hidden" name="bookId" value="<%= book.getBookId() %>">
-                <button type="submit">Modify</button>
-            </form>
-        </td>
+
     </tr>
     <% } %>
 </table>

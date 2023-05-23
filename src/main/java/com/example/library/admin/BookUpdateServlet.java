@@ -1,4 +1,4 @@
-package com.example.library;
+package com.example.library.admin;
 
 import com.example.library.book.BookListDAO;
 import com.example.library.book.BookUpdateDAO;

@@ -56,8 +56,8 @@
 
 <div class="button-container">
     <button onclick="location.href='BookInsert.jsp'">도서 등록</button>
-    <button onclick="goToQuantityModification()">도서 수량 수정</button>
-    <button onclick="goToBookDeletion()">도서 삭제</button>
+    <button onclick="location.href='UpdatepageServlet'">도서 수량 수정</button>
+    <button onclick="location.href='BookDeleteServlet'">도서 삭제</button>
     <button onclick="location.href='BookListServlet'">전체 출력</button>
 </div>
 
