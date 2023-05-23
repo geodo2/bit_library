@@ -42,7 +42,7 @@ public class BookListServlet extends HttpServlet {
             request.setAttribute("bookList", bookList);
             // BookList.jsp로 이동
             ServletContext context = getServletContext().getContext("/");
-            context.getRequestDispatcher("/BookEdit.jsp").forward(request, response);
+            context.getRequestDispatcher("/BookList.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
             // 오류 처리

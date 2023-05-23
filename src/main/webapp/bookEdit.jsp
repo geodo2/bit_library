@@ -71,26 +71,32 @@
 </head>
 <body>
 <h1>도서수량수정</h1>
-
+<%
+  BookVO bookList= (BookVO)request.getAttribute("bookList");
+  %>
+<form action="BookUpdateServlet" method="post">
 <div class="input-container">
-  <label for="book-name">도서명:</label>
-  <input type="text" id="book-name" placeholder="도서명" value="Java 프로그래밍">
 
-  <label for="author">저자:</label>
-  <input type="text" id="author" placeholder="저자" value="이웅모">
+    <input type="hidden" name="bookId" value="<%=bookList.getBookId()%>">
+    <label for="book-name">도서명:</label>
+    <input type="text" id="book-name" name="title" placeholder="<%=bookList.getTitle()%>" value="<%=bookList.getTitle()%>">
 
-  <label for="publisher">출판사:</label>
-  <input type="text" id="publisher" placeholder="출판사" value="위키북스">
+    <label for="author">저자:</label>
+    <input type="text" id="author" name="author" placeholder="<%=bookList.getAuthor()%>" value="<%=bookList.getAuthor()%>">
 
-  <label for="weight">무게:</label>
-  <input type="text" id="weight" placeholder="무게" value="2kg">
+    <label for="publisher">출판사:</label>
+    <input type="text" id="publisher" name="publisher" placeholder="<%=bookList.getPublisher()%>" value="<%=bookList.getPublisher()%>">
 
-  <label for="quantity">수량:</label>
-  <input type="number" id="quantity" placeholder="수량" value="3">
+    <label for="weight">무게:</label>
+    <input type="text" id="weight" name="weight" placeholder="<%=bookList.getBookWeight()%>" value="<%=bookList.getBookWeight()%>">
 
-  <button onclick="updateQuantity()">수량 수정</button>
+    <label for="quantity">수량:</label>
+    <input type="number" id="quantity" name="quantity" placeholder="<%=bookList.getQuantity()%>" value="<%=bookList.getQuantity()%>">
+
+    <button type="submit">수량 수정</button>
+
 </div>
-
+</form>
 <script>
   function updateQuantity() {
     // 도서 수량 수정 작업 수행
