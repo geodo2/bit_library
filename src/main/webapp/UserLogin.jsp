@@ -69,18 +69,21 @@
 <body>
 <h1>회원가입 페이지</h1>
 
-<form>
-  <input type="text" placeholder="ID">
-  <input type="text" placeholder="e-mail">
-  <input type="text" placeholder="전화번호">
-  <input type="password" placeholder="비밀번호">
-  <button onclick="login()">로그인</button>
-  <button onclick="newAcount()">회원가입</button>
+<form action="SignServlet" method="post">
+  <input type="text" name="userid" placeholder="ID">
+  <input type="email" name="email" placeholder="e-mail">
+  <input type="text" name="phone" placeholder="전화번호">
+  <input type="password" name="password" placeholder="비밀번호">
+  <button type="submit" onclick="login()">로그인 혹은 회원가입</button>
 </form>
 
 <script>
-  function login(){}
-  function newAcount() {
+  function login() {
+    // 로그인 기능 수행
+  }
+
+  function newAccount() {
+    // 회원가입 기능 수행
   }
 </script>
 </body>

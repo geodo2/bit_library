@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.example.library.img" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,8 +70,6 @@
 <body>
 <h1>도서관리 프로그램 - 관리자 버전</h1>
 
-
-
 <div>
   <label for="adminKey">관리자 키:</label>
   <input type="text" id="adminKey" placeholder="관리자 키를 입력하세요">
@@ -84,8 +81,11 @@
 <script>
   function showAdminKey() {
     var adminKey = document.getElementById("adminKey").value;
-    var resultElement = document.getElementById("result");
-    resultElement.textContent = "입력된 관리자 키: " + adminKey;
+    if (adminKey === "bitbit31") {
+      window.location.href = "admin.jsp";
+    } else {
+      document.getElementById("result").innerText = "올바른 관리자 키를 입력하세요.";
+    }
   }
 </script>
 </body>

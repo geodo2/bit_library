@@ -81,7 +81,7 @@
     </style>
 </head>
 <body>
-<h1>도서 대여 창</h1>
+<h1>도서 확인 창</h1>
 <div class="search-container">
     <input type="text" placeholder="검색">
     <button onclick="search()">검색</button>

@@ -2,10 +2,9 @@
   Created by IntelliJ IDEA.
   User: holid
   Date: 2023-05-24
-  Time: 오전 1:04
+  Time: 오전 3:09
   To change this template use File | Settings | File Templates.
 --%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.example.library.book.BookVO" %>
 <%@ page import="java.util.List" %>
@@ -51,7 +50,7 @@
     }
 
     button {
-      background-color: #f62929;
+      background-color: #29B6F6;
       border: none;
       color: #FFFFFF;
       padding: 10px 20px;
@@ -79,22 +78,10 @@
     th {
       background-color: #E0E0E0;
     }
-    .logo {
-      margin-bottom: 20px;
-    }
-
-    .logo img {
-      width: 327px;
-      height: 150px;
-    }
-
   </style>
 </head>
 <body>
-<div class="logo">
-
-</div>
-<h1>도서 삭제 창</h1>
+<h1>도서 확인 창</h1>
 <div class="search-container">
   <input type="text" placeholder="검색">
   <button onclick="search()">검색</button>
@@ -108,7 +95,7 @@
     <th>Publisher</th>
     <th>Quantity</th>
     <th>Is Available</th>
-    <th>Actions</th>
+
   </tr>
   <%
     List<BookVO> bookList= (List<BookVO>)request.getAttribute("bookList");
@@ -120,12 +107,7 @@
     <td><%= book.getPublisher() %></td>
     <td><%= book.getQuantity() %></td>
     <td><%= book.isAvailable() %></td>
-    <td>
-      <form action="DeleteActionServlet" method="get">
-        <input type="hidden" name="bookId" value="<%= book.getBookId() %>">
-        <button type="submit">Delete</button>
-      </form>
-    </td>
+
   </tr>
   <% } %>
 </table>

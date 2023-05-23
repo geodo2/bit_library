@@ -5,65 +5,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>도서 관리 - 관리자 도서 등록 페이지</title>
+    <title>Minbook 도서관</title>
     <style>
         body {
-            background-color: #F7F7F7;
+            background-color: #F2F2F2;
             font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            text-align: center;
+            background-color: #FFFFFF;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            background-color: #FFFFFF;
-            color: #01598B;
-            padding: 20px;
-            margin: 0;
-            text-align: center;
-            border-radius: 10px;
+            color: #33475B;
+            font-size: 28px;
+            margin-bottom: 30px;
         }
 
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
+        .logo {
+            margin-bottom: 20px;
         }
 
-        button {
-            background-color: #01598B;
-            border: none;
-            color: #FFFFFF;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
+        .logo img {
+            width: 327px;
+            height: 150px;
+        }
+
+        .btn-container {
+            margin-top: 40px;
+        }
+
+        .btn-container button {
+            display: inline-block;
+            padding: 12px 24px;
             font-size: 16px;
-            border-radius: 20px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #2980B9;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-
-        button:hover {
-            background-color: #013766;
+        .btn-container button:hover {
+            background-color: #1A5276;
         }
     </style>
 </head>
 <body>
-<h1>도서 관리 - 관리자 도서 등록 페이지</h1>
-
-<div class="button-container">
-    <button onclick="location.href='BookInsert.jsp'">도서 등록</button>
-    <button onclick="location.href='UpdatepageServlet'">도서 수량 수정</button>
-    <button onclick="location.href='BookDeleteServlet'">도서 삭제</button>
-    <button onclick="location.href='BookListServlet'">전체 출력</button>
+<div class="container">
+    <h1>Minbook 도서관에 온 것을 환영합니다!</h1>
+    <div class="logo">
+        <a href="https://example.com">
+            <img src="./img/minbok.png" alt="Minbook 로고">
+        </a>
+    </div>
+    <div class="btn-container">
+        <button onclick="location.href='adminMain.jsp'">관리자 로그인</button>
+        <button onclick="location.href='UserLogin.jsp'">회원 로그인</button>
+    </div>
 </div>
-
-
-<script>
-
-</script>
 </body>
 </html>

@@ -46,7 +46,6 @@ public class BookUpdateServlet extends HttpServlet {
         String weight = request.getParameter("weight");
         int quantity = Integer.parseInt(request.getParameter("quantity"));
 
-        System.out.println(bookId+title+author);
 
        BookUpdateDAO.updateBook(bookId,title,author,publisher,weight,quantity);
 
@@ -62,6 +61,6 @@ public class BookUpdateServlet extends HttpServlet {
 
         // Redirect or forward to another page
         // ...
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("admin.jsp");
     }
 }

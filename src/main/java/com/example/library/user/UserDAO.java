@@ -29,16 +29,34 @@ public class UserDAO {
 
     // 유저 가입 메서드
     public void registerUser(String username, String password, String phone, String email) {
-        // 데이터베이스에 유저 정보를 저장하는 로직
-        // ...
+        try (Connection connection = DatabaseUtil.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Users (username, password, phone, email) VALUES (?, ?, ?, ?)")) {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            preparedStatement.setString(3, phone);
+            preparedStatement.setString(4, email);
+            preparedStatement.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     // 비밀번호, 이메일, 전화번호 일치 여부 확인 메서드
     public boolean checkCredentials(String username, String password, String phone, String email) {
-        // 데이터베이스에서 해당 유저 정보를 조회하는 로직
-        // ...
-
-        // 예시로 항상 false를 반환하도록 설정
+        try (Connection connection = DatabaseUtil.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM Users WHERE username = ? AND password = ? AND phone = ? AND email = ?")) {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            preparedStatement.setString(3, phone);
+            preparedStatement.setString(4, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                return count > 0;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 }

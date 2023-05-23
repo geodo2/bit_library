@@ -33,9 +33,8 @@ public class BookRegisterServlet extends HttpServlet {
         BookRegisterDAO bookRegisterDAO = new BookRegisterDAO();
         bookRegisterDAO.bookRegister(title, author,publisher, quantity,book_weight);
         // 응답 설정
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
-        PrintWriter out = response.getWriter();
-        out.println("<h1>책 등록이 완료되었습니다.</h1>");
+        ServletContext context = getServletContext().getContext("/");
+        context.getRequestDispatcher("/admin.jsp").forward(request, response);
+
     }
 }
