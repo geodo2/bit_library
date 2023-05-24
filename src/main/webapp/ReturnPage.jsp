@@ -1,8 +1,11 @@
+
+<%@ page import="jakarta.servlet.http.Cookie" %><%--
+
 <%--
   Created by IntelliJ IDEA.
   User: holid
-  Date: 2023-05-23
-  Time: 오후 7:51
+  Date: 2023-05-24
+  Time: 오전 3:09
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -50,7 +53,7 @@
         }
 
         button {
-            background-color: #29B6F6;
+            background-color: #BEBDBB;
             border: none;
             color: #FFFFFF;
             padding: 10px 20px;
@@ -81,9 +84,9 @@
     </style>
 </head>
 <body>
-<h1>도서 확인 창</h1>
+<h1>도서 반납</h1>
 <div class="search-container">
-    <input type="text" id="searchInput" placeholder="검색">
+    <input type="text" placeholder="검색">
     <button onclick="search()">검색</button>
 </div>
 
@@ -93,40 +96,48 @@
         <th>Title</th>
         <th>Author</th>
         <th>Publisher</th>
-        <th>Quantity</th>
-        <th>Is Available</th>
+        <th>DueDate</th>
+        <th>BorrowDate</th>
+        <th>Action</th>
     </tr>
-        <%
-        List<BookVO> bookList = (List<BookVO>) request.getAttribute("bookList");
-        String searchKeyword = request.getParameter("searchKeyword");
-        for (BookVO book : bookList) {
-            // Check if the book matches the search keyword
-            if (searchKeyword == null || searchKeyword.isEmpty() ||
-                    book.getTitle().toLowerCase().contains(searchKeyword.toLowerCase()) ||
-                    book.getAuthor().toLowerCase().contains(searchKeyword.toLowerCase()) ||
-                    book.getPublisher().toLowerCase().contains(searchKeyword.toLowerCase())) {
-    %>
+    <%
+        List<BookVO> bookList= (List<BookVO>)request.getAttribute("bookList");
+        for (BookVO book : bookList) { %>
     <tr>
         <td><%= book.getBookId() %></td>
         <td><%= book.getTitle() %></td>
         <td><%= book.getAuthor() %></td>
         <td><%= book.getPublisher() %></td>
-        <td><%= book.getQuantity() %></td>
-        <td><%= book.isAvailable() %></td>
+        <td><%= book.getDueDate() %></td>
+        <td><%= book.getBorrowDate() %></td>
+        <td>
+            <%
+                // 쿠키에서 userID 값을 가져옴
+                String userId = null;
+                Cookie[] cookies = request.getCookies();
+                if (cookies != null) {
+                    for (Cookie cookie : cookies) {
+                        if (cookie.getName().equals("userid")) {
+                            userId = cookie.getValue();
+                            break;
+                        }
+                    }
+                }
+            %>
+
+            <div class="user-id">
+                    <% if (userId != null) { %>
+
+
+                <form action="ReturnActionServlet" method="get">
+                    <input type="hidden" name="bookId" value="<%= book.getBookId() %>">
+                    <input type="hidden" name="userId" value="<%= userId %>">
+                    <% } %>
+                    <button type="submit">반납하기</button>
+                </form>
+        </td>
     </tr>
-        <% }} %>
-
-    <script>
-        function search() {
-            // Get the search input value
-            var searchInput = document.getElementById("searchInput").value;
-
-            // Construct the URL with the search parameter
-            var url = "BookListServlet?searchKeyword=" + encodeURIComponent(searchInput);
-
-            // Redirect to the URL
-            window.location.href = url;
-        }
-    </script>
+    <% } %>
+</table>
 </body>
 </html>

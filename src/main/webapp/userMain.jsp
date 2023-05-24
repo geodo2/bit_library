@@ -92,10 +92,12 @@
   <% } %>
 </div>
 <div class="button-container">
-  <button onclick="location.href='RentalPage.jsp'">도서 대여</button>
-  <button onclick="location.href='UpdatepageServlet'">도서 반납</button>
-  <button onclick="location.href='BookDeleteServlet'">도서 구매</button>
-  <button onclick="location.href='BookListServlet'">전체 출력</button>
+  <button onclick="location.href='RentalPageServlet'">도서 대여</button>
+  <form action="RentalCheckServlet" method="get">
+    <input type="hidden" name="userId" value="<%= userId %>">
+    <button type="submit">도서 반납</button>
+  </form>
+  <button onclick="location.href='BookListServlet'">도서 리스트</button>
 </div>
 
 

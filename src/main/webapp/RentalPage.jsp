@@ -1,3 +1,6 @@
+
+<%@ page import="jakarta.servlet.http.Cookie" %><%--
+
 <%--
   Created by IntelliJ IDEA.
   User: holid
@@ -81,7 +84,7 @@
   </style>
 </head>
 <body>
-<h1>도서 확인 창</h1>
+<h1>도서 대여</h1>
 <div class="search-container">
   <input type="text" placeholder="검색">
   <button onclick="search()">검색</button>
@@ -95,7 +98,7 @@
     <th>Publisher</th>
     <th>Quantity</th>
     <th>Is Available</th>
-
+    <th>Action</th>
   </tr>
   <%
     List<BookVO> bookList= (List<BookVO>)request.getAttribute("bookList");
@@ -107,7 +110,35 @@
     <td><%= book.getPublisher() %></td>
     <td><%= book.getQuantity() %></td>
     <td><%= book.isAvailable() %></td>
+    <td>
+      <%
+        // 쿠키에서 userID 값을 가져옴
+        String userId = null;
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+          for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("userid")) {
+              userId = cookie.getValue();
+              break;
+            }
+          }
+        }
+      %>
 
+      <div class="user-id">
+          <% if (userId != null) { %>
+
+
+
+
+
+      <form action="RentalActionServlet" method="get">
+        <input type="hidden" name="bookId" value="<%= book.getBookId() %>">
+        <input type="hidden" name="userId" value="<%= userId %>">
+        <% } %>
+        <button type="submit">대여하기</button>
+      </form>
+    </td>
   </tr>
   <% } %>
 </table>
